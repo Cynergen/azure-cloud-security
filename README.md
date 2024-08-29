@@ -24,7 +24,7 @@ This project demonstrates detection engineering, monitoring, and cloud security 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/azure-cloud-security.git
+   git clone https://github.com/cynergen/azure-cloud-security.git
    cd azure-cloud-security
 
 
