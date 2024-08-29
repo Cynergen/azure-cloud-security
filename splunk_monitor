@@ -1,0 +1,36 @@
+module github.com/cynergen/azure-cloud-security/go-code
+
+go 1.21.6
+package main
+
+import (
+	"context"
+	"fmt"
+	"log"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/security/armsecurity"
+)
+
+func main() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to obatain a credential: %v", err)
+
+   }
+    alert := armsecurity.Alert{
+		Name: to.Ptr("AlertBruteforce"),
+		Properties: &armsecurity.Alertproperties{
+			Severity:            to.Ptr("High"),
+			CompromisedEntity:   to.Ptr("VM")
+			AlertType:           to.Ptr("AlertBruteforce")
+			StartTimeUTC:        to.Ptr("2024-08-01T00:00:00Z"),
+			EndTimeUTC:          to.Ptr("2024-08-01T00:00:00Z")   
+		}
+	}
+	
+	res, err := client.CreateOrUpdate(context.Background(), "test_resource_group", "ALertBruteForce" ,alert, nil)
+	if err = NIL {
+		log.Fatalf("Created alert: %v\n", res.Alert.Name)
+	}
+}
+
